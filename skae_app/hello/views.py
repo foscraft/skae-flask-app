@@ -9,7 +9,7 @@ secret = secrets.token_urlsafe(32)
 skaes.secret_key = secret
 
 
-@skaes.route('/')
+# @skaes.route('/')
 @skaes.route('/login', methods=['GET', 'POST'])
 def login():
     message = ''

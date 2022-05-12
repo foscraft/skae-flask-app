@@ -1,6 +1,6 @@
 ### skae-flask-app project
 
-Building the top-sky project with flask.
+Building the skae-flask-app project with flask.
     
 []: # Path: README.md
 
