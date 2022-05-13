@@ -13,7 +13,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         create_database()
-        conn = sqlite3.connect('n_database')
+        conn = sqlite3.connect('demo_database')
         c = conn.cursor()
         c.execute("SELECT * FROM users_table WHERE username = ? AND password = ?", (username, password))
         acc = c.fetchone()
@@ -42,9 +42,9 @@ def register():
         username = request.form['username']
         password = request.form['password']
         email = request.form['email']
-        conn = sqlite3.connect('n_database')
+        conn = sqlite3.connect('demo_database')
         c = conn.cursor()
-        c.execute("SELECT * FROM users_table WHERE email = ?", (email))
+        c.execute("SELECT * FROM users_table WHERE email = ?", (email,))
         acc = c.fetchone()
         if acc:
             message = 'Email already registered to an account.'

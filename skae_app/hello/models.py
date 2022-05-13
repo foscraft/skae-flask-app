@@ -10,7 +10,7 @@ def create_database():
     """
     conn = None
     try:
-        conn = sqlite3.connect('n_database')
+        conn = sqlite3.connect('demo_database')
     except Error as e:
         print(e)
     #return conn
@@ -19,7 +19,7 @@ def create_database():
             CREATE TABLE IF NOT EXISTS users_table
             ([id] INTEGER PRIMARY KEY, 
             [username] VARCHAR NOT NULL, 
-            [password] VARCHAR NOT NULL, 
+            [password] VARCHAR, 
             [email] VARCHAR NOT NULL)
             '''
             )
