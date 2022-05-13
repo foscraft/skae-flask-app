@@ -2,14 +2,10 @@ from flask import Blueprint, render_template, request, redirect, url_for, sessio
 import sqlite3
 import re
 from skae_app.hello.models import create_database
-import secrets
 
 skaes = Blueprint('skaes', __name__)
-secret = secrets.token_urlsafe(32)
-skaes.secret_key = secret
 
-
-# @skaes.route('/')
+@skaes.route('/')
 @skaes.route('/login', methods=['GET', 'POST'])
 def login():
     message = ''
