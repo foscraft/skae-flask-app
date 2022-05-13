@@ -44,10 +44,10 @@ def register():
         email = request.form['email']
         conn = sqlite3.connect('n_database')
         c = conn.cursor()
-        c.execute("SELECT * FROM users_table WHERE username = ?", (username,))
+        c.execute("SELECT * FROM users_table WHERE email = ?", (email))
         acc = c.fetchone()
         if acc:
-            message = 'Username already exists.'
+            message = 'Email already registered to an account.'
         elif not re.match(r"[^@]+@[^@]+\.[^@]+", email):
             message = 'Invalid email.'
         else:
