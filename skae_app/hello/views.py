@@ -6,6 +6,10 @@ from skae_app.hello.models import create_database
 skaes = Blueprint('skaes', __name__)
 
 @skaes.route('/')
+@skaes.route('/index')
+def index():
+    return render_template('index.html')
+
 @skaes.route('/login', methods=['GET', 'POST'])
 def login():
     message = ''
@@ -32,7 +36,7 @@ def logout():
     session.pop('loggedin', None)
     session.pop('username', None)
     session.pop('id', None)
-    return redirect(url_for('login'))
+    return redirect(url_for('.login'))
 
 
 @skaes.route('/register', methods=['GET', 'POST'])
