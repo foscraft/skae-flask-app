@@ -64,4 +64,18 @@ def register():
 @skaes.route('/profile')
 def profile():
     return render_template('profile.html') if session.get('loggedin') else redirect(url_for('login'))
+
+@skaes.route('/edit_profile', methods=['GET', 'PUT'])
+def edit_profile():
+    if request.method == 'PUT':
+        username = request.form['username']
+        password = request.form['password']
+        email = request.form['email']
+        conn = sqlite3.connect('demo_database')
+        c = conn.cursor()
+        c.execute("UPDATE users_table SET username = ?, password = ?, email = ? WHERE id = ?", (username, password, email, session['id']))
+        conn.commit()
+        return redirect(url_for('.profile'))
+    return render_template('edit_profile.html')
+
     
