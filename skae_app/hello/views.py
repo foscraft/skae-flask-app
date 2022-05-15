@@ -61,9 +61,9 @@ def register():
     return render_template('register.html', message=message)
 
 
-@skaes.route('/profile')
+@skaes.route('/profile', methods='GET')
 def profile():
-    return render_template('profile.html') if session.get('loggedin') else redirect(url_for('login'))
+    return render_template('profile.html') if session.get('loggedin') else redirect(url_for('.login'))
 
 @skaes.route('/edit_profile', methods=['GET', 'PUT'])
 def edit_profile():
