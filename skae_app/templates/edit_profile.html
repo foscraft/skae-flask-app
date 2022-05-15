@@ -6,7 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skaes</title>
 </head>
-<body>
+<body></br></br></br></br></br>
+    <div align="center">
+      <div align="center" class="border">
+         <div class="header">
+            <h1 class="word">Edit profile</h1>
+         </div></br></br></br>
+         <p class="bottom">View profile<a class="bottom" href="{{url_for('.profile')}}">Here</a></p>
+        <h2 class="word">
+            <form action="{{ url_for('.edit_profile') }}" method="put">
+              <div class="msg">{{ message }}</div>
+                <input id="username" name="username" type="text" placeholder="Enter new Username" class="textbox"/></br></br>
+                <input id="password" name="password" type="password" placeholder="Enter new Password" class="textbox"/></br></br>
+               <!-- <input id="email" name="email" type="text" placeholder="Enter new Email ID" class="textbox"/></br></br> -->
+                <input type="submit" class="btn" value="Update"></br>
+            </form>
+        </h2>
+       
+      </div>
+    </div>
     
 </body>
 </html>
